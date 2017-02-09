@@ -33,7 +33,7 @@ export function render(params: IParams): Promise<{ html: string, globals?: any }
     const platformRef = platformNodeDynamic();
 
     // Use preboot if it's installed
-    let prebootInstalled;
+    let prebootInstalled: boolean;
     try {
         prebootInstalled = !!require.resolve('preboot');
     } catch (er) {
