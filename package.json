@@ -4,7 +4,6 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "postinstall": "dotnet restore",
     "start": "ung serve",
     "build:app": "ung build",
     "build:dotnet": "dotnet publish src/prerenderer -o dist",
