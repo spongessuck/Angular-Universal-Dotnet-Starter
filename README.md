@@ -9,7 +9,9 @@ This implementation replaces the default Express-based server-side rendering sol
 0. Install the [.NET Core SDK](https://www.microsoft.com/net/core).
 0. Install the [Angular Universal CLI](https://github.com/devCrossNet/universal-cli).
 0. Clone this repo.
-0. Run `npm install` in the project directory. This will install both the npm and .NET Core dependencies.
+0. `cd` into the project directory.
+0. Run `npm install`.
+0. Run `dotnet restore`.
 
 ## Development server
 Run `ung serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -33,7 +35,11 @@ Before running the tests make sure you are serving the app via `ung serve`.
 
 ## Deploying to IIS
 
-Run `npm run build` to build the Angular app and publish the prerendering application. Then, copy the contents of `dist` to your IIS server and configure it as an application.
+0. [Configure IIS to run .NET Core apps](https://docs.microsoft.com/en-us/aspnet/core/publishing/iis).
+0. Using IIS, set up a new website, or add a directory to an existing website, and configure it as an application using the application pool set up in step 0.
+0. Run `npm run build` to build the Angular app and publish the prerendering application. If you're app will sit in a subfolder on your site, use the `--bh` flag to set the base URL tag in your `index.html` file (i.e. `--bh /subfolder/`)
+0. Copy the contents of `dist` to your IIS server.
+0. Run `npm install --production` in the application folder.
 
 ## Further help
 
